@@ -1,7 +1,8 @@
 // on définit des action type :
 // un action type est une constante qui permet de stocker un type d'action
-export const CHANGE_DIRECTION_TO_LEFT = 'CHANGE_DIRECTION_TO_LEFT';
-export const CHANGE_DIRECTION_TO_RIGHT = 'CHANGE_DIRECTION_TO_RIGHT';
+
+export const CHANGE_DIRECTION ='CHANGE_DIRECTION';
+
 
 export const CHANGE_FIRST_COLOR = 'CHANGE_FIRST_COLOR';
 export const changeFirstColor = (color) => ({

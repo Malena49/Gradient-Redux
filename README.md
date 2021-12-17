@@ -1,22 +1,9 @@
-# Store Vanilla
-
-![](docs/gradient.png)
-
-## Comprendre le store
-
+# Gradient
+Une application permet de changer de dégradé de couleurs 
 - JS vanilla
 - store
 - state
 - dispatch
 - subscribe
 
-![](docs/with-store.png)
-
-
-## Identifier les composants
-
-- store
-- actions
-- reducer
-
-![](docs/flow.svg)
+![](docs/gradient.png)

@@ -1,10 +1,10 @@
 // == Imports
-import { randomHexColor, generateSpanColor } from './utils';
+import { randomHexColor, generateSpanColor} from './utils';
 
 import store from './store';
 import {
-  changeLastColor, changeFirstColor,
-  CHANGE_DIRECTION_TO_LEFT, CHANGE_DIRECTION_TO_RIGHT, CHANGE_FIRST_COLOR,
+  changeLastColor, changeFirstColor,CHANGE_DIRECTION,
+   CHANGE_FIRST_COLOR,
 } from './actions';
 
 // on peut voir que le store est un objet
@@ -52,8 +52,6 @@ renderNbColors();
 renderGradient();
 renderColors();
 
-// on abonne nos fonctions de rendu aux mise à jour du store
-// le strore rappellera automatiquement ces fonctions après chaque mise à jour
 store.subscribe(renderNbColors);
 store.subscribe(renderGradient);
 store.subscribe(renderColors);
@@ -61,16 +59,12 @@ store.subscribe(renderColors);
 // == Controls
 document.getElementById('randAll')
   .addEventListener('click', () => {
-    // on dispatche 2 intentions : changer la première couleur
-    // et changer la dernière
-    //
     store.dispatch(changeFirstColor(randomHexColor()));
     store.dispatch(changeLastColor(randomHexColor()));
   });
 
 document.getElementById('randFirst')
   .addEventListener('click', () => {
-    console.log('je veux changer la première couleur');
     store.dispatch({
       type: CHANGE_FIRST_COLOR,
       // payload
@@ -84,17 +78,7 @@ document.getElementById('randLast')
     store.dispatch(changeLastColor(newColor));
   });
 
-document.getElementById('toLeft')
+document.getElementById('direction')
   .addEventListener('click', () => {
-    console.log('je veux que la nouvelle direction soit : à gauche');
-    // en réponse à une action de l'utilisateur, on emet une intention
-    // en direction du store.
-    // Une action est modélisée par un objet ayant une propriété type permettant
-    // de décrire l'action à accomplir
-    store.dispatch({ type: CHANGE_DIRECTION_TO_LEFT });
-  });
-
-document.getElementById('toRight')
-  .addEventListener('click', () => {
-    store.dispatch({ type: CHANGE_DIRECTION_TO_RIGHT });
+    store.dispatch({ type: CHANGE_DIRECTION});
   });
